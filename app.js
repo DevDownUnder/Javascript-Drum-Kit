@@ -12,8 +12,12 @@ window.addEventListener('keydown', function (e) {
     //If an unassigned key is pressed then stop the function from running all together
     if (!audio) return;
 
+    //Rewind to the start (allows the key to be pressed repeatedly)
+    audio.currentTime = 0;
+
     //Play audio
     audio.play()
+
 
 });
 
