@@ -3,7 +3,7 @@
 //function (e) - e is shorthand for Keyboard event (key is pressed)
 window.addEventListener('keydown', function (e) {
     //keycode instead of actual key 
-    console.log(e - keycode);
+    console.log(e.keyCode);
 });
 
 
