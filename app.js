@@ -5,7 +5,16 @@ window.addEventListener('keydown', function (e) {
     //set variable for audio
     //document (html / DOM) querySelector (element and class / id)
     //reference the audio element with a data-key = "65"
-    const audio = document.querySelector(`audio[data-key=${e.keyCode}]`)
+    //the back ticks ` ` and expression in the ${ } gets passed into the function (e) - see template literals MDN
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    console.log(audio);
+
+    //If an unassigned key is pressed then stop the function from running all together
+    if (!audio) return;
+
+    //Play audio
+    audio.play()
+
 });
 
 
