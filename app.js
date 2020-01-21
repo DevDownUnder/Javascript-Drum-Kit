@@ -1,7 +1,10 @@
 //Add event listener for when a key is pressed
 //window is the event target i.e. the user must press a key whilst on the page
 //function (e) - e is shorthand for Keyboard event (key is pressed)
-window.addEventListener('keydown', function (e) {
+window.addEventListener('keydown', playSound) 
+
+
+function playSound (e) {
     //set variable for audio
     //document (html / DOM) querySelector (element and class / id)
     //reference the audio element with a data-key = "65"
@@ -23,11 +26,11 @@ window.addEventListener('keydown', function (e) {
     //we have added the css class of 'playing' to the key when pressed
     key.classList.add('playing');
 
-});
+};
 
 //Add function to remove border highlight animation once audio play is finished
-function removeTransition(e){
-this.classList.remove('playing');
+function removeTransition(e) {
+    this.classList.remove('playing');
 };
 
 //Create variable to select ALL selectors with 'key' (to target all the keys)
@@ -38,4 +41,4 @@ const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 
-  
+
