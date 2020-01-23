@@ -1,14 +1,13 @@
 //Add event listener for when a key is pressed
-//window is the event target i.e. the user must press a key whilst on the page
+//window is the event target i.e. the user must press a key whilst on the web page
+window.addEventListener('keydown', playSound)
+
 //function (e) - e is shorthand for Keyboard event (key is pressed)
-window.addEventListener('keydown', playSound) 
-
-
-function playSound (e) {
+function playSound(e) {
     //set variable for audio
     //document (html / DOM) querySelector (element and class / id)
     //reference the audio element with a data-key = "65"
-    //the back ticks ` ` and expression in the ${ } gets passed into the function (e) - see template literals MDN
+    //template literal - element [ class ${ key press event. identify which key}
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     //key variable added as per above
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
@@ -35,10 +34,14 @@ function removeTransition(e) {
 
 //Create variable to select ALL selectors with 'key' (to target all the keys)
 const keys = document.querySelectorAll('.key');
+
 //Add event listener that listens out for the transition to end for EACH key
 //keys (all keys) .forEach (each individual key)
-//(key =>) = key variable (key pressed) => (function) remove transition 
+//variable.For each key (function parameter => remove transition once ended)
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+//See below for explanation of what the arrow function is doing (shorthand)
 
-
-
+/*keys.forEach(function (key) {
+    key.addEventListener('transitionend', removeTransition)
+});
+*/
